@@ -9,9 +9,9 @@ class Settings(BaseSettings):
     allowed_origins: list[str] = ["https://phrasepic.onrender.com"]
 
     class Config:
-        env_file = ".env",
-        env_file_encoding="utf-8",
-        extra="ignore",
+        env_file = ".env"
+        env_file_encoding="utf-8"
+        extra="ignore"
 
 
 settings = Settings()
