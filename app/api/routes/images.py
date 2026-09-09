@@ -48,7 +48,8 @@ async def generate_image_endpoint(
             detail="Image generation timed out.",
         )
 
-    except ImageGenerationError:
+    except ImageGenerationError as e:
+        print("ImageGenerationError:", repr(e))
         raise HTTPException(
             status_code=502,
             detail="Failed to generate image using Hugging Face.",

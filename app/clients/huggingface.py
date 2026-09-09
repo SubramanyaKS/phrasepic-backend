@@ -13,10 +13,15 @@ class HuggingFaceClient:
         )
 
     def generate_image(self, prompt: str):
-        return self.client.text_to_image(
-            prompt=prompt,
-            model=settings.hf_model,
-        )
-
-
-hf_client = HuggingFaceClient()
+        try:
+            result = self.client.text_to_image(
+                prompt=prompt,
+                model=settings.hf_model,
+            )
+            print("Image generated successfully")
+            return result
+        except Exception as e:
+            print("Hugging Face error:", repr(e))
+            raise
+        
+hf_client=HuggingFaceClient
